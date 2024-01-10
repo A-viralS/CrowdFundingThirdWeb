@@ -5,7 +5,6 @@ module.exports = {
   zksolc: {
     version: "1.3.9",
     compilerSource: "binary",
-    defaultNetwork: "sepolia",
     settings: {
       optimizer: {
         enabled: true,
@@ -25,10 +24,6 @@ module.exports = {
       chainId: 324,
       zksync: true,
     },
-    hardhat:{},
-    sepolia: {
-      url: "https://1rpc.io/sepolia",
-      accounts:[`0x${process.env.PRIVATE_KEY}`]
   },
   paths: {
     artifacts: "./artifacts-zk",
@@ -38,6 +33,14 @@ module.exports = {
   },
   solidity: {
     version: "0.8.17",
+    defaultNetwork: "sepolia",
+networks:{
+hardhat:{},
+sepolia:{ 
+  url: "https://1rpc.io/sepolia",
+  accounts: [`0x${process.env.PRIVATE_KEY}`],//account that would be used to deploy the contract
+},
+},
     settings: {
       optimizer: {
         enabled: true,
