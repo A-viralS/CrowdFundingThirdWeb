@@ -1,6 +1,6 @@
 import React, { useContext, createContext } from 'react';
 
-import { useAddress, useContract, ConnectWallet, useContractWrite } from '@thirdweb-dev/react';
+import { useAddress, useContract, useMetamask, useContractWrite } from '@thirdweb-dev/react';
 import { ethers } from 'ethers';
 import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 
@@ -8,14 +8,14 @@ const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
   const { contract } = useContract('0xDA8dBfbE83eD614316d2eE397188e7EC0813d44d');
-  const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
+  const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');//calls the functions and passes the arguments
 
   const address = useAddress();
-  const connect = ConnectWallet();
+  const connect = useMetamask();
 
   const publishCampaign = async (form) => {
     try {
-      const data = await createCampaign({
+      const data = await createCampaign({//here the arguments are passed to the function createCampaign   but in sequence*****
 				args: [
 					address, // owner
 					form.title, // titlẻ
@@ -81,6 +81,7 @@ export const StateContextProvider = ({ children }) => {
 
 
   return (
+    //statecontext provider shares all the data to where its needed 
     <StateContext.Provider
       value={{ 
         address,

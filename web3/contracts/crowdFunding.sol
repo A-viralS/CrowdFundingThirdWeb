@@ -19,7 +19,7 @@ contract crowdFunding {
    mapping(uint256=>Campaign) public campaigns;// array of campaigns with type of the struct Campaign
    uint256 public numberOfCampaigns=0;
 
-function createCampaign(address _owner, string memory _title , string memory _description, uint256 _deadline, string memory _image, uint256 _target) public returns (uint256){
+function createCampaign(address _owner, string memory _title , string memory _description, uint256 _target, uint256 _deadline, string memory _image ) public returns (uint256){
     Campaign storage campaign = campaigns[numberOfCampaigns];
 
         require(campaign.deadline < block.timestamp, "The deadline should be a date in the future.");

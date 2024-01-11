@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { ethers } from 'ethers';
+import { ethers } from 'ethers';// utility library that allows use to interact with the smart contract 
 
 import { useStateContext } from '../context';
 import { money } from '../assets';
@@ -30,7 +30,7 @@ const CreateCampaign = () => {
     checkIfImage(form.image, async (exists) => {
       if(exists) {
         setIsLoading(true)
-        await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)})
+        await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)})//this is where the data is being sent to smart contract
         setIsLoading(false);
         navigate('/');
       } else {
