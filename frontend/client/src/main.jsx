@@ -8,12 +8,12 @@ import { StateContextProvider } from './context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // the ThirdwebProvider will be the wrapper and will take the chainId
-  <ThirdwebProvider desiredChainId={11155111}>
-    <Router>
-      <StateContextProvider>
+  <ThirdwebProvider activeChain="goerli" clientId="e8a98f8765cc6fa5a3ec6b63965eaf3f">
+  <Router>
+    <StateContextProvider>
       <App />
-      </StateContextProvider>
-      
-    </Router>
-  </ThirdwebProvider>
+    </StateContextProvider>
+  </Router>
+</ThirdwebProvider>
 );
+
