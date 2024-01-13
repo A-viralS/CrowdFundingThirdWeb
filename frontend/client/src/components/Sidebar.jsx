@@ -6,7 +6,7 @@ import { navlinks } from '../constants';
 import hehe from '../assets/hehe.jpg';
 
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
-  <div className={`w-[48px] h-[48px] rounded-[10px] bg-blue-900 ${isActive && isActive === name && 'bg-white'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClick}>
+  <div className={`w-[48px] h-[48px] rounded-[10px] bg-blue-900 ${isActive && isActive === name && 'bg-black'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClick}>
     {!isActive ? (
       <img src={imgUrl} alt="fund_logo" className="w-1/2 h-1/2" />
     ) : (
